@@ -28,3 +28,84 @@ Antes de tudo, certifique-se de que você possui:
 ```bash
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
+```
+
+📦 Instalando Dependências
+
+```bash
+Copiar
+Editar
+dotnet restore
+```
+🧪 Instalando o Playwright
+```bash
+Copiar
+Editar
+# Instale os navegadores e recursos do Playwright
+playwright install
+```
+⚠️ Se não tiver o CLI do Playwright:
+
+```bash
+Copiar
+Editar
+dotnet tool install --global Microsoft.Playwright.CLI
+```
+🧷 Estrutura do Projeto
+```bash
+Copiar
+Editar
+📁 OrangeHRM
+├── 📁 Pages                 # Page Object Models (Login, Dashboard)
+├── 📁 Utils                 # Classes utilitárias (ConversorDeData, ValidadorDeSenha)
+├── 📁 Tests
+│   ├── 📁 System            # Testes funcionais com Playwright
+│   └── 📁 Unit              # Testes unitários com NUnit
+├── 📄 OrangeHRM.csproj
+└── README.md
+```
+🎯 Funcionalidades Implementadas
+✅ Testes Funcionais (com Playwright)
+Acesso à página de login do OrangeHRM
+
+Preenchimento de credenciais válidas
+
+Verificação de redirecionamento para o Dashboard após login
+
+Verificação da visibilidade de elementos no dashboard (ex: "Time at Work", "Quick Launch")
+
+✅ Testes Unitários
+ConversorDeData: converte datas para formatos específicos
+
+ValidadorDeSenha: valida critérios de senha forte (mínimo de 8 caracteres, número, maiúscula, minúscula, símbolo)
+
+▶️ Executando os Testes
+Testes Unitários
+```bash
+Copiar
+Editar
+dotnet test --filter TestCategory=Unit
+```
+Ou simplesmente:
+
+```bash
+Copiar
+Editar
+dotnet test
+```
+Testes de Sistema (Playwright)
+Certifique-se que os navegadores do Playwright estão instalados:
+
+```bash
+Copiar
+Editar
+playwright install
+```
+Depois execute normalmente:
+
+```bash
+Copiar
+Editar
+dotnet test
+```
+Os testes de sistema abrirão o navegador Chrome (modo não-headless por padrão) e executarão ações reais no site.
