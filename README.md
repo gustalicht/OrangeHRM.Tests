@@ -33,28 +33,20 @@ cd seu-repositorio
 📦 Instalando Dependências
 
 ```bash
-Copiar
-Editar
 dotnet restore
 ```
 🧪 Instalando o Playwright
 ```bash
-Copiar
-Editar
 # Instale os navegadores e recursos do Playwright
 playwright install
 ```
 ⚠️ Se não tiver o CLI do Playwright:
 
 ```bash
-Copiar
-Editar
 dotnet tool install --global Microsoft.Playwright.CLI
 ```
 🧷 Estrutura do Projeto
 ```bash
-Copiar
-Editar
 📁 OrangeHRM
 ├── 📁 Pages                 # Page Object Models (Login, Dashboard)
 ├── 📁 Utils                 # Classes utilitárias (ConversorDeData, ValidadorDeSenha)
@@ -82,30 +74,22 @@ ValidadorDeSenha: valida critérios de senha forte (mínimo de 8 caracteres, nú
 ▶️ Executando os Testes
 Testes Unitários
 ```bash
-Copiar
-Editar
 dotnet test --filter TestCategory=Unit
 ```
 Ou simplesmente:
 
 ```bash
-Copiar
-Editar
 dotnet test
 ```
 Testes de Sistema (Playwright)
 Certifique-se que os navegadores do Playwright estão instalados:
 
 ```bash
-Copiar
-Editar
 playwright install
 ```
 Depois execute normalmente:
 
 ```bash
-Copiar
-Editar
 dotnet test
 ```
 Os testes de sistema abrirão o navegador Chrome (modo não-headless por padrão) e executarão ações reais no site.
