@@ -14,22 +14,32 @@ namespace OrangeHRM.Tests.Pages
 
         public async Task<bool> EstaNaPaginaAsync()
         {
-            // Verifica se a URL atual contém "/dashboard/index"
             return _pagina.Url.Contains("/dashboard/index");
         }
 
         public async Task<string> ObterTituloAsync()
         {
-            // Pega o texto do título do dashboard (ajuste o seletor se precisar)
             return await _pagina.TextContentAsync("h6.oxd-text--h6");
         }
 
         public async Task<bool> PainelDeQuickLaunchVisivelAsync()
         {
-            // Verifica se o painel quick launch está visível
-            return await _pagina.IsVisibleAsync("div.orangehrm-quick-launch-panel");
-        }
+            try
+            {
+                var seletor = "div[class*='quick-launch']";
+                var elemento = await _pagina.WaitForSelectorAsync(seletor, new()
+                {
+                    State = WaitForSelectorState.Visible,
+                    Timeout = 5000
+                });
 
-        // Aqui pode adicionar outros métodos pra validar elementos do dashboard
+                return elemento != null && await elemento.IsVisibleAsync();
+            }
+            catch (TimeoutException)
+            {
+                Console.WriteLine("Timeout esperando pelo painel de Quick Launch");
+                return false;
+            }
+        }
     }
 }

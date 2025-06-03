@@ -37,7 +37,6 @@ namespace OrangeHRM.Tests.Tests
         [Test, Order(1)]
         public async Task DeveFazerLoginComSucesso()
         {
-            // Verifica se está no dashboard após o login
             Assert.That(_pagina.Url, Does.Contain("/dashboard/index"));
         }
 
@@ -50,6 +49,9 @@ namespace OrangeHRM.Tests.Tests
             Assert.IsTrue(titulo.Contains("Dashboard"), $"Título esperado 'Dashboard', mas foi '{titulo}'");
 
             Assert.IsTrue(await _paginaDoDashboard.PainelDeQuickLaunchVisivelAsync(), "Painel Quick Launch não está visível");
+
+            // Extra (debug visual)
+            await _pagina.ScreenshotAsync(new() { Path = "screenshot_dashboard.png" });
         }
 
         [OneTimeTearDown]
