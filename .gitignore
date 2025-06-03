@@ -1,0 +1,44 @@
+# Build / Publish
+bin/
+obj/
+out/
+
+# User-specific files
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Rider (JetBrains)
+.idea/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Playwright cache and browsers
+playwright/.cache/
+.playwright/
+
+# Test results
+TestResults/
+*.trx
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NuGet
+*.nupkg
+packages/
+*.snupkg
+
+# Others
+*.db
+*.sqlite
+*.bak
+*.tmp
